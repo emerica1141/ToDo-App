@@ -1,0 +1,30 @@
+{% extends "base.html " %}
+
+{% block title %} Add Task {% endblock %}
+
+{% block content %}
+
+<h1 class="flex justify-center mt-5 text-3xl">Fill the following inputs to insert new task</h1>
+
+<div class="mt-2">
+<form action="{{ url_for('add_task') }}" method="POST">
+    <div class="mb-3">
+        <label for="task" class="form-label">Task title</label>
+        <input type="task" class="form-control" name="task" id="task" placeholder="Do laundry">
+    </div>
+    <div class="mb-3">
+        <label for="description" class="form-label">Task description</label>
+        <textarea class="form-control" name="description" id="description" rows="3" placeholder="Max 250 characters"></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="priority" class="form-label">Set task priority</label>
+        <input type="task" class="form-control" name="priority" id="priority" placeholder="1">
+    </div>
+        <div class="d-flex justify-content-center gap-3">
+            <button class="text-gray-50 bg-indigo-500 hover:bg-indigo-200 hover:text-gray-500 border focus:outline-none focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-3 py-2.5 me-2 mb-2 uppercase" type="submit">Add task</button>
+            <a class="text-gray-900 hover:bg-gray-50 border focus:outline-none focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-3 py-2.5 me-2 mb-2 uppercase" href="{{ url_for('home') }}" role="button">Return to Main page</a> 
+        </div>  
+</form>
+</div>
+
+{% endblock %}

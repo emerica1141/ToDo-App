@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %} Sign Up {% endblock %}
+
+{% block content%}
+
+<div class="flex flex-col  text-center p-5 space-y-3 text-3xl">
+    <h1>Your registration was successful!</h1>
+    <h1>You can no login: <a href="{{ url_for('login') }}" class="text-gray-50 bg-indigo-500 hover:bg-gray-50 hover:text-indigo-500 px-3 py-2 rounded-lg border-2 hover:border-blue-500">Here</a></h1>
+</div>
+
+{% endblock %}

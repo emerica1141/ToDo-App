@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+
+{% block title %} Sign Up {% endblock %}
+
+{% block content%}
+  <div class="flex flex-col items-center px-6 py-6 mx-auto md:h-screen lg:py-0 mt-5">
+      <div class="w-100 bg-indigo-50 rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0">
+          <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+              <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+                  Registreeri kasutajaks
+              </h1>
+
+              <!-- Flash error message -->
+
+              {% with messages = get_flashed_messages() %}
+              {% if messages %}
+              <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                {% for message in messages %}
+                <span class="font-medium">Error!</span><p>{{ message }}</p>
+                {% endfor %}
+              </div>
+              {% endif %}
+            {% endwith %}
+
+
+              <form class="space-y-4 md:space-y-6" method="post">
+                  <div>
+                      <label for="username" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nimi</label>
+                      <input type="text" name="username" id="username" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Corx" required="">
+                  </div>
+                  <div>
+                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
+                    <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="corgi@woof.ee" required="">
+                  </div>
+                  <div>
+                      <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Parool</label>
+                      <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
+                  </div>
+                  <div>
+                    <label for="password_confirm" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Parool uuesti</label>
+                    <input type="password" name="password_confirm" id="password_confirm" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
+                  </div>
+                  <button type="submit" class="w-full text-white bg-gray-600 hover:bg-gray-300 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Registreeri</button>
+                  <p class="text-sm font-light text-gray-500 dark:text-gray-400">
+                      Omad juba kasutajat? <a href="{{ url_for ('login') }}" class="font-medium text-primary-600 hover:underline dark:text-primary-500">Logi sisse siin</a>
+                  </p>
+              </form>
+          </div>
+      </div>
+  </div>
+
+
+
+
+
+
+
+<!-- <section class="vh-100 bg-image">
+  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body p-5">
+              <h2 class="text-uppercase text-center mb-5">Create an account</h2>
+
+              {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                  <div class="flashes text-center text-danger">
+                    {% for message in messages %}
+                      <p>{{ message }}</p>
+                    {% endfor %}
+                  </div>
+                {% endif %}
+              {% endwith %}
+
+              <form method="post">
+
+                <div class="form-outline mb-4">
+                  <input type="text" id="username" name="username" class="form-control form-control-lg" />
+                  <label class="form-label" for="username">Your username</label>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="email" id="email" name="email" class="form-control form-control-lg" />
+                  <label class="form-label" for="email">Your Email</label>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="password" id="password" name="password" class="form-control form-control-lg" />
+                  <label class="form-label" for="password">Password</label>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="password" id="password_confirm" name="password_confirm" class="form-control form-control-lg" />
+                  <label class="form-label" for="password_confirm">Repeat your password</label>
+                </div>
+
+                <div class="d-flex justify-content-center">
+                  <button type="submit"
+                    class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
+                </div>
+
+                <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="#!"
+                    class="fw-bold text-body"><u>Login here</u></a></p>
+
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+{% endblock %}

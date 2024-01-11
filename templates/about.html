@@ -1,0 +1,63 @@
+{% extends "base.html"%}
+
+{% block title %} About {% endblock %}
+
+{% block content %}
+
+<h1 class="flex justify-center mt-5 text-3xl">About this project</h1>
+<p class="mt-5">Here at this study project, I have delved into the fascinating realms of Python and Flask, meticulously honing my skills in database queries, 
+    CRUD operations, and the intricacies of Flask functionalities. This journey involves a hands-on exploration of HTML, TailwindCSS, and Flowbite components, 
+    weaving them together to create a useful learning project.</p>
+
+<div class="flex">
+    <div class="flex flex-col mt-5">
+        <h2 class="text-2xl">Functionalities: </h2>
+        <ol class="mt-3 list-decimal px-3">
+            <li>Registration and login authentication</li>
+            <li>Task adding functionality</li>
+            <li>Task editing and deleting</li>
+            <li>Task "Done", which will remove task from home page and add it to Archive page</li>
+            <li>Possibility to "Undo" task in Archives and bring it back to active phase in Home page</li>
+            <li>Possibility to "Delete" task in Archive page</li>
+            <li>Relationships between accounts, to-do list and archive tables, which allows application to show the owner of tasks</li>
+            <li>"Reminder" functionality, which will send and email to accounts</li>
+        </ol>
+    </div>   
+
+    <div class="flex flex-col mt-5">
+        <h2 class="text-2xl">Functionalities to add: </h2>
+        <ol class="mt-3 list-decimal px-3">
+            <li>"Profile" page, where user can change password and email</li>
+            <li>Add footer</li>
+            <li>Create an email system for "Reminder"</li>
+            <li>Change design of "Successful registration page"</li>  
+            <li>Functionality to ask for confirmation when deleting tasks from Home and Archive</li>  
+        </ol>
+    </div>  
+</div>
+
+
+
+<div class="bg-gray-100 mt-5 py-4">
+    <h1 class="text-3xl text-center py-2 font-sans font-semibold opacity-75">Technology used</h1>
+    <div class="w-full flex justify-content-evenly">
+        <a href="#">
+            <img src="{{ url_for('static', filename='img/python.png') }}" alt="" class="w-28 h-28 px-3 py-3 opacity-75">
+        </a>
+        <a href="#">
+            <img src="{{ url_for('static', filename='img/flask.png') }}" alt="" class="w-28 h-28 px-3 py-3 opacity-75">
+        </a>
+        <a href="#">
+            <img src="{{ url_for('static', filename='img/sqlite.png') }}" alt="" class="w-28 h-28 px-3 py-3 opacity-75">
+        </a>
+        <a href="#">
+            <img src="{{ url_for('static', filename='img/tailwindcss.png') }}" alt="" class="w-28 h-28 px-3 py-3 opacity-75">
+        </a>
+        <a href="#">
+            <img src="{{ url_for('static', filename='img/flowbite.png') }}" alt="" class="w-28 h-28 px-3 py-3 opacity-75">
+        </a>
+    </div>
+</div>
+
+
+{% endblock %}

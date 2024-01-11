@@ -1,0 +1,76 @@
+{% extends "base.html" %} {% block title %} Home {% endblock %} {% block content
+%} {% if current_user.is_authenticated: %}
+<!-- <a href="{{ url_for('add_task') }}" class="btn btn-outline-light d-flex justify-content-center mt-3 mb-3">Add Task</a>
+
+    <div class="p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <div class="grid">
+            <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                <div>
+                    <div class="d-flex justify-between">
+                        <h1 class="mt-2 font-medium">Do laundry</h1>
+                    <div>
+                        <button>Edit</button>
+                        <button class="border px-2.5 py-1 rounded-full bg-red-500 hover:bg-red-100 hover:border-blue-500">
+                            <h1 class="">X</h1>
+                        </button>
+                    </div>
+                    </div>
+                    <p>text</p>
+                </div>
+                <div class="py-3"
+                    <p>Task has been added by: Rene</p>
+                </div>
+            </div>
+        </div>
+    </div> -->
+ 
+
+
+<!-- <a href="{{ url_for('add_task') }}" class="btn btn-outline-light d-flex justify-center mt-3 mb-3">Add Task</a> -->
+
+<div class="grid gap-4 lg:grid-cols-3 md::grid-cols-2 sm:grid-cols-1 mt-4">
+  {% for task in tasks: %}
+  <div class="max-w-md p-6 bg-gray-50 border border-gray-200 rounded-lg shadow">
+    <div>
+      <div class="flex justify-between">
+        <h5 class="mb-2 text-2xl font-normal tracking-tight text-gray-900 dark:text-white">{{ task.task_title}} | <span class="bg-indigo-200 px-2.5 rounded-full">{{ task.priority}}</span>
+      </h5>
+
+        <div class="flex space-x-3 md:space-x-4 mt-1">
+          <a href="{{ url_for('task_done', id=task['id'])}}" class="">
+          <svg class="w-6 h-6 text-green-500 hover:text-green-600 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5"/>
+          </svg></a>
+          <a href="{{ url_for('edit', id=task['id']) }}" class="">
+            <svg class="w-5 h-5 text-indigo-400 hover:text-indigo-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+              <path d="m13.835 7.578-.005.007-7.137 7.137 2.139 2.138 7.143-7.142-2.14-2.14Zm-10.696 3.59 2.139 2.14 7.138-7.137.007-.005-2.141-2.141-7.143 7.143Zm1.433 4.261L2 12.852.051 18.684a1 1 0 0 0 1.265 1.264L7.147 18l-2.575-2.571Zm14.249-14.25a4.03 4.03 0 0 0-5.693 0L11.7 2.611 17.389 8.3l1.432-1.432a4.029 4.029 0 0 0 0-5.689Z"/>
+            </svg></a>
+          <a href="{{ url_for('delete', id=task['id']) }}" class="">
+            <svg class="w-5 h-5 text-rose-200 hover:text-rose-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h16M7 8v8m4-8v8M7 1h4a1 1 0 0 1 1 1v3H6V2a1 1 0 0 1 1-1ZM3 5h12v13a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V5Z"/>
+            </svg></a>
+        </div>
+      </div>
+      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+        {{ task.task_description }}
+      </p>
+    </div>
+    <hr>
+    <p class="py-2">Task has been added by: {{task.author.username}}</p>
+    <p class="py-2">Send your Bear a <a href="#" class="uppercase  rounded-md py-1 px-2 bg-pink-300 hover:bg-pink-100">Reminder</a></p>
+  </div>
+  {% endfor %}
+</div>
+<div class="flex justify-center py-5">
+  <img src="/static/img/corgi-no-way.png" alt="">
+  <p class="uppercase italic">"No way, that can't be all?"</p>
+</div>
+{% else: %}
+<div class="container text-center flex flex-col items-center">
+  <h1 class="mb-4 mt-4 text-xl md:text-4xl font-extrabold leading-none tracking-tight text-gray-900">Your <span class=" text-3xl md:text-5xl uppercase bg-indigo-500 px-3 rounded-md md:text-2xl">nr. 1</span> task sharing application!</h1>
+  <p class=" text-xl md:text-2xl">Even your girlfriend likes it.</p>
+  <img src="/static/img/doggy.png" alt="" class="rounded-full w-96 h-96">
+  <p class="italic uppercase">"WOOF WOOF"</p>
+</div>
+{% endif %} {% endblock %}
+

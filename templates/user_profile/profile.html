@@ -1,0 +1,43 @@
+{% extends "base.html"%}
+
+{% block title %} Profile {% endblock %}
+
+{% block content %}
+ 
+<div class="flex">
+
+<div id="default-sidebar" class="z-40 w-64 h-64 transition-transform sm:translate-x-0 mt-4" aria-label="Sidebar">
+    <div class="h-screen px-3 py-4 overflow-y-auto bg-indigo-50 rounded-lg">
+       <ul class="space-y-1 font-medium">
+        <li>
+            <p class="flex-1 ms-3 whitespace-nowrap font-normal text-xl border-bottom p-2 uppercase">Account</p>
+          </li>
+          <li>
+             <a href="{{ url_for('user_data') }}" class="flex items-center p-2 text-gray-900 font-light hover:bg-gray-100 group hover:text-indigo-500">
+                <span class="ms-3">Overview</span>
+             </a>
+          </li>
+          <li>
+            <p class="flex-1 ms-3 whitespace-nowrap font-normal text-xl border-bottom p-2">Settings</p>
+          </li>
+          <li>
+             <a href="{{ url_for('edit_email') }}" class="flex items-center p-2 text-gray-900 font-light rounded-lg hover:bg-gray-100 group hover:text-indigo-500 ">
+                <span class="flex-1 ms-3 whitespace-nowrap">Change email</span>
+             </a>
+          </li>
+          <li>
+             <a href="{{ url_for('edit_password') }}" class="flex items-center p-2 text-gray-900 font-light rounded-lg hover:bg-gray-100 group hover:text-indigo-500">
+                <span class="flex-1 ms-3 whitespace-nowrap">Change password</span>
+             </a>
+          </li>
+       </ul>
+    </div>
+</div>
+
+
+{% block profile %}{% endblock %}
+
+</div>
+  
+
+{% endblock %}

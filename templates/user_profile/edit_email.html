@@ -1,0 +1,43 @@
+{% extends "user_profile/profile.html" %}
+
+{% block profile %}
+
+<div class="flex flex-col w-full h-screen bg-gray-50 mt-4 mx-2 rounded-lg align-items-center">
+    <h1 class="text-3xl py-4 uppercase font-light">Change email</h1>
+
+    <div class="px-5 space-y-5">
+        <form method="post">
+
+                        <!-- Flash error message -->
+
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50" role="alert">
+                    {% for message in messages %}
+                        <span class="font-medium">Error!</span><p>{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            {% endwith %}
+
+            <div class="w-64 rounded-lg gap-2 border-bottom p-2">
+                <p>Your current email is: <span class="text-xl">{{ current_user.email }} </span></p>
+
+            </div>
+            <div class="flex flex-col w-64 rounded-lg gap-2 mt-4">
+                <label for="email">New email:</label>
+                <input type="text" id="email" name="email" class="rounded-md border-blue-100 border-1 hover:border-blue-500">
+            </div>
+            <div class="flex flex-col w-64 rounded-lg gap-2">
+                <label for="email_confirm">New email again:</label>
+                <input type="text" id="email_confirm" name="email_confirm" class="rounded-md border-blue-100 border-1 hover:border-blue-500">
+            </div>
+            <div class="flex justify-center py-3">
+                <button type="submit" class="p-2 text-gray-50 bg-indigo-500 hover:bg-gray-50 hover:text-indigo-500 m-2 rounded-md border-1 hover:border-blue-500">Change email</button>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+{% endblock %}
