@@ -1,32 +1,9 @@
-{% extends "base.html" %} {% block title %} Home {% endblock %} {% block content
-%} {% if current_user.is_authenticated: %}
-<!-- <a href="{{ url_for('add_task') }}" class="btn btn-outline-light d-flex justify-content-center mt-3 mb-3">Add Task</a>
+{% extends "base.html" %} 
+{% block title %} Home {% endblock %}
+{% block content %} 
 
-    <div class="p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-        <div class="grid">
-            <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                <div>
-                    <div class="d-flex justify-between">
-                        <h1 class="mt-2 font-medium">Do laundry</h1>
-                    <div>
-                        <button>Edit</button>
-                        <button class="border px-2.5 py-1 rounded-full bg-red-500 hover:bg-red-100 hover:border-blue-500">
-                            <h1 class="">X</h1>
-                        </button>
-                    </div>
-                    </div>
-                    <p>text</p>
-                </div>
-                <div class="py-3"
-                    <p>Task has been added by: Rene</p>
-                </div>
-            </div>
-        </div>
-    </div> -->
- 
+{% if current_user.is_authenticated: %}
 
-
-<!-- <a href="{{ url_for('add_task') }}" class="btn btn-outline-light d-flex justify-center mt-3 mb-3">Add Task</a> -->
 
 <div class="grid gap-4 lg:grid-cols-3 md::grid-cols-2 sm:grid-cols-1 mt-4">
   {% for task in tasks: %}
