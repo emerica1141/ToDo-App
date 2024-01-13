@@ -4,9 +4,10 @@ from flask_login import UserMixin, login_user, LoginManager, login_required, cur
 from sqlalchemy.orm import relationship
 from datetime import date
 from db import db
+from config import SECRET_KEY
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = "Rrenka2"
+app.config['SECRET_KEY'] = SECRET_KEY
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///to-do-db.db"
 
 db.init_app(app)
